@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+
+  <link rel="icon" href="%sveltekit.assets%/favicon.png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  %sveltekit.head%
+
+</head>
+<div id="loading">
+  <div class="loa">
+    <div class="bar"></div>
+    <div class="bar"></div>
+    <div class="bar"></div>
+    <div class="bar"></div>
+  </div>
+</div>
+<div id="svelte">
+  %sveltekit.body%
+</div>
+<link rel="stylesheet"
+  href="https://fonts.loli.net/css?family=Mulish:300,300italic,400,400italic,700,700italic%7CFredericka%20the%20Great:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20JP:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20SC:300,300italic,400,400italic,700,700italic%7CInconsolata:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+<script src="https://lib.baomitu.com/pjax/0.2.8/pjax.min.js"></script>
+
+
+<script>
+  var pjax=new Pjax({
+    elements: "a[href], form[action], button",
+    selectors: [
+      'main'
+    ],
+    cacheBust: false
+  })
+</script>
+</body>
+
+</html>
