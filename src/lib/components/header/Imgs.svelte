@@ -1,31 +1,20 @@
 <script>
-  import lozad from 'lozad'
-  import { onMount, tick } from 'svelte'
+  import { onMount } from 'svelte'
   import getImageList from '$lib/config/_images.js'
+  import LazyImage from '$lib/components/LazyImage.svelte'
   let image_list = []
 
-  const loadImages = async () => {
-    image_list = getImageList()
-    await tick()
-    const observer = lozad('img, [data-background-image]', {
-      loaded: function (el) {
-        el.classList.add('lozaded')
-        console.log(el, '=>>')
-      }
-    })
-
-    observer.observe()
-  }
-
   onMount(() => {
-    loadImages()
+    image_list = getImageList()
   })
 </script>
 
 <div id="imgs">
   <ul>
     {#each image_list as i}
-      <li style="background-image: url('{i}');" data-background-image={i} class="item" />
+      <LazyImage>
+        <li style="background-image: url('{i}');" data-background-image={i} class="item" />
+      </LazyImage>
     {/each}
   </ul>
 </div>
